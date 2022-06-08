@@ -56,6 +56,7 @@ const Wrapper = styled.div(({ colors }) => ({
   justifyContent: 'space-between',
   maxWidth: '100%',
   backgroundColor: colors.sapphire,
+  boxShadow: '0 4px 2px -2px gray',
   color: colors.white,
   padding: '20px 30px',
 }));

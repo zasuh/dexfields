@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Navbar from '../components/Navbar';
+import Layout from '../components/layout/Layout';
 
 function Home() {
   return (
@@ -8,12 +8,9 @@ function Home() {
         <title>DexFields</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main>
-        <Navbar />
-      </main>
-
-      <footer />
+      <Layout>
+        <div>Hello</div>
+      </Layout>
     </div>
   );
 }

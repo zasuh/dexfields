@@ -1,22 +1,33 @@
 import React from 'react';
+import styled from '@emotion/styled';
+
 import Footer from './Footer';
 import Navbar from './Navbar';
+import CreateDeck from '../CreateDeck';
 
 const Layout = ({ children }) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        height: '100vh',
-      }}
-    >
+    <Wrapper>
       <Navbar />
-      <div>Hello</div>
+      <Content>
+        <CreateDeck />
+      </Content>
       <Footer />
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  height: '100vh',
+});
+
+const Content = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
 
 export default Layout;

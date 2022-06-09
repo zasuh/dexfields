@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useTheme } from '@emotion/react';
-import { FaPlus, FaRegBell, FaSearch, FaJenkins } from 'react-icons/fa';
+import { useTheme, useColorMode } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
+import { SearchIcon, BellIcon, AddIcon, MoonIcon } from '@chakra-ui/icons';
+import { FaJenkins } from 'react-icons/fa';
 
 const LINKS = [
   {
@@ -26,25 +28,31 @@ const LINKS = [
 
 export default function Navbar() {
   const theme = useTheme();
+  const { toggleColorMode } = useColorMode();
   return (
     <Wrapper colors={theme.colors}>
       <LeftWrapper>
-        <Title>DEXFIELDS</Title>
+        <Text fontSize="2xl">DEXFIELDS</Text>
         <LeftLinksWrapper>
           {LINKS.slice(0, 3).map((link) => (
-            <div key={link.label}>{link.label}</div>
+            <Text fontSize="md" key={link.label}>
+              {link.label}
+            </Text>
           ))}
           <Separator />
           {LINKS.slice(3, 6).map((link) => (
-            <div key={link.label}>{link.label}</div>
+            <Text fontSize="md" key={link.label}>
+              {link.label}
+            </Text>
           ))}
         </LeftLinksWrapper>
       </LeftWrapper>
       <RightWrapper>
-        <FaPlus />
-        <FaRegBell />
+        <AddIcon />
+        <BellIcon />
         <FaJenkins />
-        <FaSearch />
+        <SearchIcon />
+        <MoonIcon onClick={toggleColorMode} />
       </RightWrapper>
     </Wrapper>
   );
@@ -55,7 +63,7 @@ const Wrapper = styled.div(({ colors }) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   maxWidth: '100%',
-  backgroundColor: colors.sapphire,
+  backgroundColor: colors.blue[900],
   boxShadow: '0 4px 2px -2px gray',
   color: colors.white,
   padding: '20px 30px',
@@ -82,12 +90,6 @@ const LeftLinksWrapper = styled.div({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-});
-
-const Title = styled.h1({
-  display: 'block',
-  fontSize: 24,
-  textDecoration: 'underline',
 });
 
 const Separator = styled.div({
